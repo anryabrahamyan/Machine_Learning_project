@@ -1,1 +1,4 @@
-./datasets/*
+datasets/*
+./ML_project/
+.idea/
+ML_project
