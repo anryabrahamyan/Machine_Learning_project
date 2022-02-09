@@ -1,6 +1,7 @@
 """
 File for training the model
 """
+#TODO fill in the rest
 import argparse
 import tensorflow as tf
 from transformers import AutoTokenizer, TFAutoModelForSequenceClassification
@@ -22,8 +23,16 @@ def load_data(path: str) -> pd.DataFrame:
     return pd.read_csv(path)
 
 def create_model(data, max_length):
+    """Function for creating the transformer model"""
     pass
 
+
+def train_model(*args):
+    """Function for training the model and saving it in the models file."""
+    pass
+
+def load_model(*args):
+    """test function for loading the model after saving"""
 # Load RoBERTa's tokenizer
 tokenizer = AutoTokenizer.from_pretrained("roberta-base")  # Tokenizer
 inputs = tokenizer(texts, padding=True, truncation=True, return_tensors='tf')  # Tokenized text
