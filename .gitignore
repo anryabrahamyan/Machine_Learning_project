@@ -2,4 +2,4 @@
 .idea/
 ML_project
 papers
-/preprocessing/.ipynb_checkpoints/
+/preprocessing/.ipynb*
