@@ -4,3 +4,5 @@ ML_project
 papers
 preprocessing/.ipynb*
 datasets/preprocessed.csv
+/model_app/.ipynb_checkpoints/
+model_app/__pycache__/

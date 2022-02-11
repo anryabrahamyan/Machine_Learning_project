@@ -45,7 +45,7 @@ model.compile(
     metrics=[tf.metrics.SparseCategoricalAccuracy(),
              tf.keras.metrics.SparseTopKCategoricalAccuracy(k=3, name='Sparse_Top_3_Categorical_Accuracy')],
 )
-
+#TODO convert model to class
 if __name__ == '__main__':
     args = parser.parse_args()
     data = load_data(args.data_path)

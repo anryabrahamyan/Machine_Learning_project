@@ -45,7 +45,6 @@ def augment(df:pd.DataFrame,last_k:int,augmenter='synonym')->pd.DataFrame:
         df=pd.concat([df,df_part])
 
     return df
-# TODO add NLP augmentation
 # TODO evaluate model and choose which features to keep
 # TODO ADD requirements at the end
 
