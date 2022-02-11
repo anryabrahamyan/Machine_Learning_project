@@ -57,5 +57,6 @@ if __name__ == '__main__':
     df=clean_tweets(df)
     if args.augmentation:
         df=augment(df,args.last_k,augmenter=args.augmenter)
-        df.to_csv('../datasets/preprocessed.csv',index=False)
+    df.to_csv('../datasets/preprocessed.csv',index=False)
+
 
