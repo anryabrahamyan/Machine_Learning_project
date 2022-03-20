@@ -4,9 +4,12 @@ File for preprocessing and augmenting data
 from bleach import clean
 import pandas as pd
 import argparse
+from sklearn.model_selection import train_test_split
 import preprocessor as p  # forming a separate feature for cleaned tweets
 from nlpaug.augmenter.word.synonym import SynonymAug
 from nlpaug.augmenter.word.back_translation import BackTranslationAug
+
+SPLIT_PROP = 0.25
 
 parser = argparse.ArgumentParser(description='Arguments for preprocessing the data.')
 parser.add_argument('-data_path', type=str, default='../datasets/tweet_emotions.csv',
@@ -56,6 +59,11 @@ if __name__ == '__main__':
     df=clean_tweets(df)
     if args.augmentation:
         df=augment(df,args.last_k,augmenter=args.augmenter)
-    df.to_csv('../datasets/preprocessed.csv',index=False)
+    X,y = df["content"], df["sentiment"]
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42,stratify = y)
+    df_train = pd.concat([X_train,y_train],axis = 1)
+    df_test  = pd.concat([X_test,y_test],axis = 1)
+    df_test.to_csv('../datasets/test_preprocessed.csv',index=False)
+    df_train.to_csv('../datasets/train_preprocessed.csv',index=False)
 
 
