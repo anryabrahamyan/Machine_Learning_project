@@ -16,7 +16,7 @@ parser.add_argument('-data_path', type=str, default='../datasets/tweet_emotions.
                     help='path to where the data is stored.')
 parser.add_argument('-augmentation', type=int, default=0,
                     help='Whether to augment the data or not.')
-parser.add_argument('-last_k', type=int, default=4,
+parser.add_argument('-last_k', type=int, default=6,
                     help='Which least populated columns to augment.')
 parser.add_argument('-augmenter', type=str, default='synonym',
                     help='Which augmenter to use.')
@@ -47,8 +47,7 @@ def augment(df:pd.DataFrame,last_k:int,augmenter='synonym')->pd.DataFrame:
         df_part.content.apply(lambda x: augmenter.augment(x,num_thread=4))
         df=pd.concat([df,df_part])
 
-    return df
-# TODO evaluate model and choose which features to keep
+    return df# TODO evaluate model and choose which features to keep
 # TODO ADD requirements at the end
 
 
