@@ -57,7 +57,7 @@ if __name__ == '__main__':
     df=pd.read_csv(args.data_path)
     df=clean_tweets(df)
     if args.augmentation:
-        df=augment(df,args.last_k,augmenter=args.augmenter)
+        df=augment(df,args.last_k,augmenter=args.augmenter)#TODO augment only the train set
     X,y = df["content"], df["sentiment"]
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42,stratify = y)
     df_train = pd.concat([X_train,y_train],axis = 1)
